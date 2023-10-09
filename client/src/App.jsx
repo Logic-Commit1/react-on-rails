@@ -1,15 +1,22 @@
+import {BrowserRouter as Router} from "react-router-dom"
+import Navbar from "./components/Navbar";
+import AppRoutes from "./components/AppRoutes";
 
-import './App.css'
+import "./App.css";
 
-import PostsLists from './components/PostsLists'
+
+
 
 function App() {
   return (
-    <>
-      <h1>React on Rails Blog</h1>
-      <PostsLists />
-    </>
-  )
+    <Router>
+      <>
+        <h1>React on Rails Blog</h1>
+        <Navbar />
+        <AppRoutes />
+      </>
+    </Router>
+  );
 }
 
-export default App
+export default App;
