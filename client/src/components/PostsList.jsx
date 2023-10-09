@@ -31,7 +31,7 @@ function PostsList() {
     <div>
       {posts.map((post, index) => (
         <div key={index} className="post-content">
-          <h1>{post.title}</h1>
+          <h2>{post.title}</h2>
           <p>{post.body}</p>
         </div>
       ))}
