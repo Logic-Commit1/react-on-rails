@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchAllPosts, deletePostHandler } from "../services/postService";
+import { fetchAllPosts, deletePost } from "../services/postService";
 
 function PostsList() {
   const [posts, setPosts] = useState([]);
-  const [, setIsLoading] = useState([]);
-  const [, setError] = useState(null);
 
   // Fetch posts from the API
   useEffect(() => {
@@ -20,9 +18,9 @@ function PostsList() {
     loadPosts();
   }, []);
 
-  const deletePost = async (id) => {
+  const deletePostHandler = async (id) => {
     try {
-      await deletePostHandler(id);
+      await deletePost(id);
       setPosts(posts.filter((post) => post.id !== id));
     } catch (error) {
       console.error(error);
@@ -38,7 +36,7 @@ function PostsList() {
           </h2>
           <div className="post-links"></div>
           <Link to={`posts/${post.id}/edit`}>Edit</Link>
-          <button onClick={() => deletePost(post.id)}>Delete</button>
+          <button onClick={() => deletePostHandler(post.id)}>Delete</button>
           <hr />
         </div>
       ))}
