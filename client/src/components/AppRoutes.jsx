@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import PostsList from "./PostsList";
 import PostDetails from "./PostDetails";
